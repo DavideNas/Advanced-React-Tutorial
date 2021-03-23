@@ -1,5 +1,5 @@
 import React from "react";
-import SimpleState from "./tutorial/setup/SimpleUsestate";
+import SimpleState from "./tutorial/SimpleUsestate";
 
 function App() {
   return (

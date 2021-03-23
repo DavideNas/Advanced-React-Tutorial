@@ -30,5 +30,8 @@ code {
 .container {
   text-align: center;
   color: #15243d;
-  margin-top: 5rem;
+  height: 100%;
+  width: auto;
+  display: grid;
+  padding-bottom: 50px;
 }
