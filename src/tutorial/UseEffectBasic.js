@@ -24,7 +24,14 @@ const UseEffectBasic = () => {
     if (number >= 2) {
       document.title = `New message(${number})`;
     }
-  });
+    // second parameter
+    // with value [number] it changes every time value is modified
+  }, [number]);
+
+  useEffect(() => {
+    console.log("ciao mondo");
+  }, []);
+  // without value [] it run only in initial render
 
   console.log("render component");
   return (
