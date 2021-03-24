@@ -17,7 +17,7 @@ const UseStateObject = () => {
   //
   const changeMessage = () => {
     // change a specific state value
-    setMessage("lacqua è tiepida");
+    setMessage("l'acqua è tiepida");
   };
 
   // structured object with useState hook
