@@ -1,11 +1,11 @@
 import React from "react";
 import SimpleState from "./tutorial/SimpleUsestate";
-import UseStateArray from "./tutorial/UseStateArray";
+import UseStateObject from "./tutorial/UseStateObject";
 
 function App() {
   return (
     <div className="container">
-      <UseStateArray />
+      <UseStateObject />
     </div>
   );
 }
