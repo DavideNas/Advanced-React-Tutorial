@@ -5,12 +5,13 @@ import React from "react";
 // import UseEffectBasic from "./tutorial/UseEffectBasic";
 // import Cleanup from "./tutorial/UseEffectCleanup";
 // import FetchData from "./tutorial/UseEffectFetchData";
-import ConditionalRendering from "./tutorial/ConditionalRendering";
+// import ConditionalRendering from "./tutorial/ConditionalRendering";
+import ShortCircuit from "./tutorial/ShortCircuit";
 
 function App() {
   return (
     <div className="container">
-      <ConditionalRendering />
+      <ShortCircuit />
     </div>
   );
 }
