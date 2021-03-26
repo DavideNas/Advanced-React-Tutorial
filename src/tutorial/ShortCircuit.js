@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 
-// Short Circuit (by conditional rendering)
+// Short Circuit (Ternary Operator)
 const ShortCircuit = () => {
     // useState can be Falsy ('') or not ('k')
     const [text, setText] = useState('');
+    const [isError, setIsError] = useState(true);
 
-    // it render if text is FALSY (init firstValue if it's false)
-    const firstValue = text || 'hello';
-    // it render if text it's not FALSY (init secondValue if it's true)
-    const secondValue = text && 'world';
     return (
         <div>
-            {/* render only the verified condition */}
-            <h2>I° - {firstValue}</h2>
-            <h2>II° - {secondValue}</h2>
-            {/* case of 'or' condition (direct) : pass if FALSY */}
-            {/* render one if it's false */}
             <h1>{text || 'ciao'}</h1> 
-            {/* case of 'and' condition (direct) : pass if NOT FALSY. !text pass if FALSY */}
-            {/* render one if it's true */}
-            { text && <h1> mondo </h1> }
+            <Button
+                // switch status on click
+                onClick={() => setIsError(!isError)}
+                variant="contained" 
+                color="primary"
+            >
+              Toggle Error
+            </Button>
+            
+            {/* show 'Error...' or NOT */}
+            {isError && <h1> Error... </h1> }
+            {/* ternary operator */}
+            {isError ? <p>There is an ERROR</p> : <p>It's all Ok (no error)</p>}
         </div>
     )
 }
