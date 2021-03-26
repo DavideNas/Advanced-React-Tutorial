@@ -12,7 +12,16 @@ const ConditionalRendering = () => {
         // set this if main setIsLoading is FALSE
         //setIsLoading(true);
         fetch(url)
-            .then((resp) => resp.json())
+            .then((resp) => {
+                if(resp.status >= 200 && resp.status <= 299) {
+                    return resp.json();
+                }
+                else {
+                    setIsLoading(false);
+                    setIsError(true);
+                    throw new Error(resp.statusText);
+                }
+            })
             // to print all data i fetch
             // .then((user) => console.log(user))
             // resolve loading printing data
@@ -21,6 +30,7 @@ const ConditionalRendering = () => {
                 setUser(login)
                 setIsLoading(false);
             })
+            // trigged error case (i.e. url error for example)
             .catch((error) => console.log(error));
     },[]);
 
