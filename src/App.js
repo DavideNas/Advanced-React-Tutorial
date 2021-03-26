@@ -4,12 +4,13 @@ import React from "react";
 // import Counter from "./tutorial/UseStateCounter";
 // import UseEffectBasic from "./tutorial/UseEffectBasic";
 // import Cleanup from "./tutorial/UseEffectCleanup";
-import FetchData from "./tutorial/UseEffectFetchData";
+// import FetchData from "./tutorial/UseEffectFetchData";
+import ConditionalRendering from "./tutorial/ConditionalRendering";
 
 function App() {
   return (
     <div className="container">
-      <FetchData />
+      <ConditionalRendering />
     </div>
   );
 }
