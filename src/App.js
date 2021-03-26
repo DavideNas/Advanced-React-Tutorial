@@ -6,12 +6,14 @@ import React from "react";
 // import Cleanup from "./tutorial/UseEffectCleanup";
 // import FetchData from "./tutorial/UseEffectFetchData";
 // import ConditionalRendering from "./tutorial/ConditionalRendering";
-import ShortCircuit from "./tutorial/ShortCircuit";
+// import ShortCircuit from "./tutorial/ShortCircuit";
+import ShowHide from "./tutorial/ShowHide";
+
 
 function App() {
   return (
     <div className="container">
-      <ShortCircuit />
+      <ShowHide />
     </div>
   );
 }
