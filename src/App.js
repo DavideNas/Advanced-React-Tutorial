@@ -7,13 +7,13 @@ import React from "react";
 // import FetchData from "./tutorial/UseEffectFetchData";
 // import ConditionalRendering from "./tutorial/ConditionalRendering";
 // import ShortCircuit from "./tutorial/ShortCircuit";
-import ShowHide from "./tutorial/ShowHide";
-
+// import ShowHide from "./tutorial/ShowHide";
+import SampleForm from "./tutorial/SampleForm";
 
 function App() {
   return (
     <div className="container">
-      <ShowHide />
+      <SampleForm />
     </div>
   );
 }
