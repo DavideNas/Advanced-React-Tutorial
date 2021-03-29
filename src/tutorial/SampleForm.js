@@ -4,7 +4,8 @@ import { Button, Input, Form, Card } from "antd";
 import "antd/dist/antd.css";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
-// Forms in React (just print values on console)
+// Forms in React
+// ADD person to a List
 // Integration of Ant Framework
 
 const SampleForm = () => {
@@ -12,29 +13,47 @@ const SampleForm = () => {
   const [firstName, setFirstName] = useState("");
   // used to save Email
   const [email, setEmail] = useState("");
+  //
+  const [people, setPeople] = useState([]);
 
   // simple function to print form data
   const handleSubmit = (e) => {
     e.preventDefault();
-    // print name in the field
-    console.log("name: ", firstName);
-    // print email in the field
-    console.log("email: ", email);
+    // check if both of value are true
+    if (firstName && email) {
+      // I create an object 'person' with values 'firstName' and 'email'
+      // const person = {firstName:firstName, email:email};
+      // If the key value match with value I can short expression like this
+      const person = { firstName, email };
+      //console.log(person);
+      // Now Add 'person' object to array
+      setPeople((people) => {
+        return [...people, person];
+      });
+      console.log(people);
+      // ...and delete fields
+      setFirstName("");
+      setEmail("");
+    } else {
+      console.log("empty values");
+    }
   };
 
   return (
     <article
-      style={{ padding: "2rem 2rem 2rem 2rem", backgroundColor: "#eee" }}
+      style={{
+        margin: "auto",
+        padding: "2rem",
+        width: "100%",
+        backgroundColor: "#efe",
+      }}
     >
-      <Card
-        title="Form In React"
-        bodyStyle={{ margin: "auto", padding: "auto" }}
-      >
+      <Card title="Form In React" style={{ margin: "auto", width: 300 }}>
         {/* onSubmit={handleSubmit} ,in side form still work if use different UI */}
         <Form>
           <Input
             // params to stylize field
-            style={{ margin: "0rem 1rem 1rem 0rem" }}
+            style={{ marginBottom: "1rem" }}
             prefix={<UserOutlined />}
             type="text"
             name="firstName"
