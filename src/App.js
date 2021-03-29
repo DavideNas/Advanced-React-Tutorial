@@ -8,12 +8,13 @@ import React from "react";
 // import ConditionalRendering from "./tutorial/ConditionalRendering";
 // import ShortCircuit from "./tutorial/ShortCircuit";
 // import ShowHide from "./tutorial/ShowHide";
-import SampleForm from "./tutorial/SampleForm";
+// import SampleForm from "./tutorial/SampleForm";
+import MultipleInputForm from "./tutorial/MultipleInputForm";
 
 function App() {
   return (
     <div className="container">
-      <SampleForm />
+      <MultipleInputForm />
     </div>
   );
 }
