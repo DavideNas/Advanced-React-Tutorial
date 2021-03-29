@@ -24,7 +24,7 @@ const SampleForm = () => {
       // I create an object 'person' with values 'firstName' and 'email'
       // const person = {firstName:firstName, email:email};
       // If the key value match with value I can short expression like this
-      const person = { firstName, email };
+      const person = { id: new Date().getTime().toString(), firstName, email };
       //console.log(person);
       // Now Add 'person' object to array
       setPeople((people) => {
@@ -90,6 +90,27 @@ const SampleForm = () => {
           </Button>
         </Form>
       </Card>
+      {/* display all person saved to list */}
+      <div style={{ margin: "1rem 1rem 1rem 1rem" }}>
+        {people.map((person, index) => {
+          const { id, firstName, email } = person;
+          return (
+            <Card
+              style={{
+                margin: "auto",
+                marginBottom: "1rem",
+                width: 300,
+              }}
+              key={id}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <h3>{firstName}</h3>
+                <p>{email}</p>
+              </div>
+            </Card>
+          );
+        })}
+      </div>
     </article>
   );
 };
