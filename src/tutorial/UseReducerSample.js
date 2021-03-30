@@ -7,14 +7,23 @@ import {data} from "./data";
 
 // reducer hook (read action passed)
 const reducer = (state,action) => {
-    // check if is 'TESTING' type
-    if(action.type === 'TESTING'){
+    // check if is 'ADD_ITEM' type
+    if(action.type === 'ADD_ITEM'){
+        // create new object (previous one + new payload)
+        const newPeople = [...state.people, action.payload];
         return {
             ...state,
-            people: data,
+            people: newPeople,
             isModalOpen: true,
             modalContent: 'item added',
         };
+    }
+    if(action.type === "NO_VALUE"){
+        return {
+            ...state, 
+            isModalOpen: true,
+            modalContent:'please enter value',
+        }
     }
     throw new Error ('No matching action type');
 };
@@ -40,11 +49,12 @@ const UseReducerSample = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(name){
-            // then pass TESTING type to action (used inside reducer to check)
-            dispatch({type:'TESTING'})
+            const newItem = {id:new Date().getTime().toString(), name}
+            // Pass 'payload' to action ( also with the type 'ADD_ITEM' )
+            dispatch({type:'ADD_ITEM', payload:newItem })
         }
         else {
-            dispatch({type:'RANDOM'})
+            dispatch({type:'NO_VALUE'})
         }
     }
     return (
