@@ -25,6 +25,15 @@ const reducer = (state,action) => {
             modalContent:'please enter value',
         }
     }
+    if(action.type === 'REMOVE_ITEM') {
+        const newPeople = state.people.filter((person) => person.id !== action.payload);
+        return {
+            ...state,
+            people: newPeople,
+            isModalOpen:true,
+            modalContent:'item removed',
+        }
+    }
     if(action.type === 'CLOSE_MODAL') {
         return {...state,isModalOpen:false}
     }
@@ -87,6 +96,7 @@ const UseReducerSample = () => {
             {state.people.map((person) => {
                 return <div key={person.id}>
                     <h3>{person.name}</h3>
+                    <button onClick={() =>dispatch({type:'REMOVE_ITEM',payload:person.id})}>remove</button>
                 </div>
             })}
         </>
