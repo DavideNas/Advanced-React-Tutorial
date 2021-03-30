@@ -5,10 +5,10 @@ import {data} from "./data";
 // useReducer sample
 // used to add more structured form
 
-// reducer hook (read action passed)
+// reducer hook ( read action passed )
 const reducer = (state,action) => {
     // check if is 'ADD_ITEM' type
-    if(action.type === 'ADD_ITEM'){
+    if(action.type === 'ADD_ITEM') {
         // create new object (previous one + new payload)
         const newPeople = [...state.people, action.payload];
         return {
@@ -18,12 +18,15 @@ const reducer = (state,action) => {
             modalContent: 'item added',
         };
     }
-    if(action.type === "NO_VALUE"){
+    if(action.type === "NO_VALUE") {
         return {
             ...state, 
             isModalOpen: true,
             modalContent:'please enter value',
         }
+    }
+    if(action.type === 'CLOSE_MODAL') {
+        return {...state,isModalOpen:false}
     }
     throw new Error ('No matching action type');
 };
@@ -48,7 +51,7 @@ const UseReducerSample = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(name){
+        if(name) {
             const newItem = {id:new Date().getTime().toString(), name}
             // Pass 'payload' to action ( also with the type 'ADD_ITEM' )
             dispatch({type:'ADD_ITEM', payload:newItem })
@@ -57,12 +60,19 @@ const UseReducerSample = () => {
             dispatch({type:'NO_VALUE'})
         }
     }
+
+    // called by Modal component after 3 seconds
+    const closeModal = () => {
+        // dispatch special type to close component 'Modal' 
+        dispatch({type:'CLOSE_MODAL'})
+    }
+
     return (
         <>
             {/* render component Modal if 'showModal' is true */}
             {/* showModal && <Modal />*/}
             {/* read boolean of modalContent using 'state' */}
-            {state.isModalOpen && <Modal modalContent={state.modalContent}/>}
+            {state.isModalOpen && <Modal closeModal={closeModal} modalContent={state.modalContent}/>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <input
