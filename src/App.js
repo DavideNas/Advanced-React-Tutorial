@@ -10,12 +10,13 @@ import React from "react";
 // import ShowHide from "./tutorial/ShowHide";
 // import SampleForm from "./tutorial/SampleForm";
 // import MultipleInputForm from "./tutorial/MultipleInputForm";
-import UseRefSample from "./tutorial/UseRefSample";
+// import UseRefSample from "./tutorial/UseRefSample";
+import UseReducerSample from "./tutorial/UseReducerSample";
 
 function App() {
   return (
     <div className="container">
-      <UseRefSample />
+      <UseReducerSample />
     </div>
   );
 }
