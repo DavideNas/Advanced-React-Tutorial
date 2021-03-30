@@ -9,14 +9,14 @@ import {data} from "./data";
 const reducer = (state,action) => {
     // check if is 'TESTING' type
     if(action.type === 'TESTING'){
-        console.log(state, action);
-        return state;
+        return {
+            ...state,
+            people: data,
+            isModalOpen: true,
+            modalContent: 'item added',
+        };
     }
-    // ... or not
-    else{
-        console.log("unknown type");
-        return state;
-    }
+    throw new Error ('No matching action type');
 };
 
 const defaultState = {
@@ -44,6 +44,7 @@ const UseReducerSample = () => {
             dispatch({type:'TESTING'})
         }
         else {
+            dispatch({type:'RANDOM'})
         }
     }
     return (
