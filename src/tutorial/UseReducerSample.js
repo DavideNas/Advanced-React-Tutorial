@@ -4,14 +4,28 @@ import {data} from "./data";
 
 // useReducer sample
 // used to add more structured form
-const reducer = (state,action) => {};
+
+// reducer hook (read action passed)
+const reducer = (state,action) => {
+    // check if is 'TESTING' type
+    if(action.type === 'TESTING'){
+        console.log(state, action);
+        return state;
+    }
+    // ... or not
+    else{
+        console.log("unknown type");
+        return state;
+    }
+};
+
 const defaultState = {
     //no records printed
-    //people:[],
+    people:[],
     //print array
-    people:data,
+    //people:data,
     isModalOpen:false,
-    modalContent:"hello world"
+    modalContent:"",
 }
 const UseReducerSample = () => {
     const [name, setName] = useState('');
@@ -21,12 +35,13 @@ const UseReducerSample = () => {
 
     // useReducer init 'state' passing object 'defaultState' to it
     // it's always assotiated to 'dispatcher'
-    const [state, dispatch] = useReducer(reducer, defaultState)
+    const [state, dispatch] = useReducer(reducer, defaultState);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(name){
-
+            // then pass TESTING type to action (used inside reducer to check)
+            dispatch({type:'TESTING'})
         }
         else {
         }
