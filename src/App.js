@@ -9,12 +9,13 @@ import React from "react";
 // import ShortCircuit from "./tutorial/ShortCircuit";
 // import ShowHide from "./tutorial/ShowHide";
 // import SampleForm from "./tutorial/SampleForm";
-import MultipleInputForm from "./tutorial/MultipleInputForm";
+// import MultipleInputForm from "./tutorial/MultipleInputForm";
+import UseRefSample from "./tutorial/UseRefSample";
 
 function App() {
   return (
     <div className="container">
-      <MultipleInputForm />
+      <UseRefSample />
     </div>
   );
 }
