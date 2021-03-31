@@ -11,12 +11,13 @@ import React from "react";
 // import SampleForm from "./tutorial/SampleForm";
 // import MultipleInputForm from "./tutorial/MultipleInputForm";
 // import UseRefSample from "./tutorial/UseRefSample";
-import UseReducerSample from "./tutorial/UseReducerSample";
+// import UseReducerSample from "./tutorial/UseReducerSample";
+import PropDrilling from "./tutorial/PropDrilling";
 
 function App() {
   return (
     <div className="container">
-      <UseReducerSample />
+      <PropDrilling />
     </div>
   );
 }
