@@ -13,12 +13,13 @@ import React from "react";
 // import UseRefSample from "./tutorial/UseRefSample";
 // import UseReducerSample from "./tutorial/UseReducerSample";
 // import PropDrilling from "./tutorial/PropDrilling";
-import ContextAPI from "./tutorial/ContextAPI";
+// import ContextAPI from "./tutorial/ContextAPI";
+import CustomHook from "./tutorial/CustomHook";
 
 function App() {
   return (
     <div className="container">
-      <ContextAPI />
+      <CustomHook />
     </div>
   );
 }
