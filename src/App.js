@@ -14,12 +14,13 @@ import React from "react";
 // import UseReducerSample from "./tutorial/UseReducerSample";
 // import PropDrilling from "./tutorial/PropDrilling";
 // import ContextAPI from "./tutorial/ContextAPI";
-import CustomHook from "./tutorial/CustomHook";
+// import CustomHook from "./tutorial/CustomHook";
+import PropTypesExample from "./tutorial/PropTypesExample";
 
 function App() {
   return (
     <div className="container">
-      <CustomHook />
+      <PropTypesExample />
     </div>
   );
 }

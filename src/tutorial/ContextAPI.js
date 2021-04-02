@@ -53,16 +53,16 @@ const List = () => {
 }
 
 // component for single row
-const SinglePerson = ({id,name}) => {
+const SinglePerson = ({ id, name }) => {
     // now I can receive function passed with the hook 'useContext'
     const { removePerson } = useContext(PersonContext);
     // if I pass data info consider a sample variable 
     // const data = useContext(PersonContext);
     return <div>
         {/* render name of person */}
-        <h4>{name}</h4>
+        <h4>{ name }</h4>
         {/* render button to call prop drilled function */}
-        <button onClick={()=> removePerson(id)}>remove</button>
+        <button onClick={ () => removePerson(id) }>remove</button>
     </div>
 }
 
