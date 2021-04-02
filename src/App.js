@@ -12,12 +12,14 @@ import React from "react";
 // import MultipleInputForm from "./tutorial/MultipleInputForm";
 // import UseRefSample from "./tutorial/UseRefSample";
 // import UseReducerSample from "./tutorial/UseReducerSample";
-import PropDrilling from "./tutorial/PropDrilling";
+// import PropDrilling from "./tutorial/PropDrilling";
+import ContextAPI from "./tutorial/ContextAPI";
+
 
 function App() {
   return (
     <div className="container">
-      <PropDrilling />
+      <ContextAPI />
     </div>
   );
 }
