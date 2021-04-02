@@ -15,7 +15,6 @@ import React from "react";
 // import PropDrilling from "./tutorial/PropDrilling";
 import ContextAPI from "./tutorial/ContextAPI";
 
-
 function App() {
   return (
     <div className="container">

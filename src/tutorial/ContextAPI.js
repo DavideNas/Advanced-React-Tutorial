@@ -23,22 +23,23 @@ const ContextAPI = () => {
     }
     return (
         // just assign to the value of 'useContext' the object of function
-        <PersonContext.Provider value={{removePerson}}>
+        <PersonContext.Provider value={{removePerson, people}}>
             <h1>Prop Drilling</h1>
             {/* render of component 'list', passing:
              1- array '' 
              2- function 'removePerson', must be the same throug passages */}
-            <List people={people} />
+            <List />
         </PersonContext.Provider>
     )
 }
 
 // component for the list
-const List = ({people, removePerson}) => {
+const List = () => {
+    const mainData = useContext(PersonContext);
     return(
         <>
         {/* split element of array into 'person' variable  */}
-        {people.map((person) => {
+        {mainData.people.map((person) => {
             return (
                 // render 'SinglePerson' component passing:
                 // 1- 'id'
