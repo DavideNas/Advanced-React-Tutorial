@@ -11,6 +11,8 @@ const People = () => {
                 return (
                     <div key={ person.id }>
                         <h4>{ person.name }</h4>
+                        {/* link to a person page passing id  */}
+                        <Link to={`/person/${person.id}`}>Learn More</Link>
                     </div>
                 );
             })}

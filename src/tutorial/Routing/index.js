@@ -34,6 +34,11 @@ const ReactRouterSetup = () => {
                 <Route path="/people">
                     <People />
                 </Route>
+                {/* render Person component if I type 'person' on address bar */}
+                {/* it also pass 'id' value from people link */}
+                <Route path="/person/:id" children={<Person/>}>
+
+                </Route>
                 {/* use "*" to route all other page */}
                 <Route path="*">
                     {/* render error page because they doesn't exists */}
