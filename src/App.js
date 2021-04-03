@@ -15,12 +15,13 @@ import React from "react";
 // import PropDrilling from "./tutorial/PropDrilling";
 // import ContextAPI from "./tutorial/ContextAPI";
 // import CustomHook from "./tutorial/CustomHook";
-import PropTypesExample from "./tutorial/PropTypesExample";
+// import PropTypesExample from "./tutorial/PropTypesExample";
+import ReactRouterSetup from "./tutorial/Routing";
 
 function App() {
   return (
     <div className="container">
-      <PropTypesExample />
+      <ReactRouterSetup />
     </div>
   );
 }
