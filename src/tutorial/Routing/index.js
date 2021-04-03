@@ -35,7 +35,8 @@ const ReactRouterSetup = () => {
                     <People />
                 </Route>
                 {/* render Person component if I type 'person' on address bar */}
-                {/* it also pass 'id' value from people link */}
+                {/* it also pass ':id' value from people link */}
+                {/* if I change ':orange' the value change also in console, as I use params in component */}
                 <Route path="/person/:id" children={<Person/>}>
 
                 </Route>
