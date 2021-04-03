@@ -10,6 +10,9 @@ const Error = () => {
     return (
         <div>
             <h2>Error Page</h2>
+            <Link to='/'>
+                Back Home
+            </Link>
         </div>
     )
 }

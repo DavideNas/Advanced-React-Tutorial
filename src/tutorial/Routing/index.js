@@ -19,20 +19,29 @@ import Navbar from './Navbar';
 const ReactRouterSetup = () => {
     return (
         <Router>
-            {/* this can render only if "/" is on address bar */}
-            <Route exact path="/">
-                <Home/>
-            </Route>
-            {/* type the string you want to view on address bar */}
-            <Route path="/about">
-                {/* and the page to render */}
-                <About/>
-            </Route>
-            <Route path="/people">
-                <People/>
-            </Route>
+            <Navbar />
+            {/* use 'switch' component to routing one page at time */}
+            <Switch>
+                {/* this can render only if "/" is on address bar */}
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                {/* type the string you want to view on address bar */}
+                <Route path="/about">
+                    {/* and the page to render */}
+                    <About />
+                </Route>
+                <Route path="/people">
+                    <People />
+                </Route>
+                {/* use "*" to route all other page */}
+                <Route path="*">
+                    {/* render error page because they doesn't exists */}
+                    <Error />
+                </Route>
+            </Switch>
         </Router>
     )
 }
 
-export default ReactRouterSetup
+export default ReactRouterSetup;
