@@ -6,18 +6,34 @@ import "antd/dist/antd.css";
 
 // memo function to skip re-render of useState
 
-const url = "https://api.scryfall.com/cards/search?order=set&q=e%3Asta&unique=prints";
+const url = "https://api.scryfall.com/cards/search?order=set&q=e%3Akhm&unique=prints";
 // every time props or state changes, component re-renders
+
+const calculateMostExpensive = (data) => {
+    console.log(" hello !")
+    return (
+        data.reduce((total, onecard) => {
+            const price = onecard.prices.eur;
+            if ( price >= total ) {
+                total = price;
+            }
+            return total;
+        },0) * 100
+    );
+};
 
 const Index = () => {
     const { loading, cards } = useFetch(url);
-    const [count, setCount] = useState(0);
-    const [cart,setCart] = useState(0);
+    const [ count, setCount ] = useState(0);
+    const [ cart,setCart ] = useState(0);
 
     // useCallback will re-render list only if 'cart' value is changed
     const addToCart = useCallback(() => {
         setCart(cart + 1);
     }, [cart]);
+
+    // this useMemo will compute the calculate only when dependencies is changed
+    const mostExpensxive = useMemo(() => calculateMostExpensive(cards), [cards,]);
 
     return (
         <section>
@@ -26,6 +42,7 @@ const Index = () => {
             <Button onClick={() => setCount(count + 1)}>click me</Button>
             <h1>Cart: {cart}</h1>
             <h2>{loading ? 'loading...' : 'data'}</h2>
+            <h1>Most Expensive: €{mostExpensive}</h1>
             {/* this 'addToCart' function is trigged by re-render */}
             <BigList cards={cards} addToCart={addToCart} />
         </section>
@@ -67,7 +84,7 @@ const BigList = React.memo(({ cards, addToCart }) => {
                             flexWrap: "wrap",
                             justifyContent: "space-between",
                         }}>
-                            
+
                             <Card key={card.id} {...card} addToCart={addToCart} />
                             </li>
                         )
