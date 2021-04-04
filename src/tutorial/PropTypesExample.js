@@ -18,7 +18,7 @@ const PropTypesExample = () => {
                 { cards.data.map((card) => {
                     // return a component for every single card if array
                     return <Card key={card.id} {...card} />;
-                })} 
+                })}
             </section>
         </div>
     )

@@ -16,12 +16,13 @@ import React from "react";
 // import ContextAPI from "./tutorial/ContextAPI";
 // import CustomHook from "./tutorial/CustomHook";
 // import PropTypesExample from "./tutorial/PropTypesExample";
-import ReactRouterSetup from "./tutorial/Routing";
+// import ReactRouterSetup from "./tutorial/Routing";
+import UseMemoUseCallback from "./tutorial/MemoCallback";
 
 function App() {
   return (
     <div className="container">
-      <ReactRouterSetup />
+      <UseMemoUseCallback />
     </div>
   );
 }
