@@ -7,25 +7,34 @@ import "antd/dist/antd.css";
 // memo function to skip re-render of useState
 
 const url = "https://api.scryfall.com/cards/search?order=set&q=e%3Asta&unique=prints";
+// every time props or state changes, component re-renders
 
 const Index = () => {
     const { loading, cards } = useFetch(url);
     const [count, setCount] = useState(0);
+    const [cart,setCart] = useState(0);
+
+    // useCallback will re-render list only if 'cart' value is changed
+    const addToCart = useCallback(() => {
+        setCart(cart + 1);
+    }, [cart]);
 
     return (
         <section>
             <h2>useMemo & useCallback</h2>
             <h1>Count: {count}</h1>
             <Button onClick={() => setCount(count + 1)}>click me</Button>
+            <h1>Cart: {cart}</h1>
             <h2>{loading ? 'loading...' : 'data'}</h2>
-            <BigList cards={cards} />
+            {/* this 'addToCart' function is trigged by re-render */}
+            <BigList cards={cards} addToCart={addToCart} />
         </section>
     )
 }
 
 // I wrap whole function to "React.memo()"
 // this will not re-render the list when useState trigger it.
-const BigList = React.memo(({ cards }) => {
+const BigList = React.memo(({ cards, addToCart }) => {
     useEffect(() => {
         // console.log to check rerender of the component
         console.log("big list called");
@@ -58,7 +67,8 @@ const BigList = React.memo(({ cards }) => {
                             flexWrap: "wrap",
                             justifyContent: "space-between",
                         }}>
-                            <Card key={card.id} {...card} />
+                            
+                            <Card key={card.id} {...card} addToCart={addToCart} />
                             </li>
                         )
                     })};

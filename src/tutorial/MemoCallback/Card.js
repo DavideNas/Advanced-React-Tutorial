@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 // define all values I want to load from url
-const Card = ({image_uris, cmc, name, rarity, prices}) => {
+const Card = ({image_uris, cmc, name, rarity, prices, addToCart}) => {
     return (
-        <article>
+        <article style={{marginTop:"2rem"}}>
             {/* another way to set default parameter is write || after value */}
-            <h4>{name || "MTG Card"} - {cmc || "0"} - {rarity || "common"} - € {prices.eur || "0"} - Tix {prices.tix || "0"}</h4>
+            <h4>{name || "MTG Card"} - {rarity || "common"}</h4> 
+            <button onClick={addToCart}>Add To Cart</button>
+            <h3>€ {prices.eur || "0"} - Tix {prices.tix || "0"}</h3>
             <img src={image_uris.small} alt={name}/>
         </article>
     )
